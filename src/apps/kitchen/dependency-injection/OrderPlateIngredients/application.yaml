@@ -1,0 +1,4 @@
+services:
+  Kitchen.OrderPlateIngredients.domain.OrderPlateIngredientRepository:
+    class: ../../../../Contexts/Kitchen/OrderPlateIngredients/infrastructure/persistence/FileOrderPlateIngredientRepository
+    arguments: []

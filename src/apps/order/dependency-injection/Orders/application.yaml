@@ -1,0 +1,16 @@
+services:
+  Order.Orders.domain.OrderRepository:
+    class: ../../../../Contexts/Order/Orders/infrastructure/persistence/FileOrderRepository
+    arguments: []
+
+  Order.Orders.application.OrderCreatedEmitter:
+    class: ../../../../Contexts/Order/Orders/application/OrderCreatedEmitter
+    arguments: ['@Shared.EmitterBus']
+
+  Order.Orders.application.OrderCreator:
+    class: ../../../../Contexts/Order/Orders/application/OrderCreator
+    arguments: ['@Order.Orders.domain.OrderRepository', '@Shared.EventBus', '@Order.Orders.application.OrderCreatedEmitter']
+
+  Order.Orders.application.OrderGetter:
+    class: ../../../../Contexts/Order/Orders/application/OrderGetter
+    arguments: ['@Order.Orders.domain.OrderRepository']

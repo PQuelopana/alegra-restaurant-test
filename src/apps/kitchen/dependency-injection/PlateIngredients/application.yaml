@@ -1,0 +1,4 @@
+services:
+  Kitchen.PlateIngredients.domain.PlateIngredientRepository:
+    class: ../../../../Contexts/Kitchen/PlateIngredients/infrastructure/persistence/FilePlateIngredientRepository
+    arguments: []

@@ -1,0 +1,17 @@
+services:
+  FoodWarehouse.Foods.domain.FoodStockRepository:
+    class: ../../../../Contexts/FoodWarehouse/Foods/infrastructure/persistence/FileFoodStockRepository
+    arguments: []
+
+  FoodWarehouse.Foods.application.FoodProvider:
+    class: ../../../../Contexts/FoodWarehouse/Foods/application/FoodProvider
+    arguments: [
+      '@FoodWarehouse.Foods.domain.FoodStockRepository',
+      '@Shared.EventBus'
+    ]
+
+  FoodWarehouse.Foods.application.ProvideFoodOnOrderPlateCreated:
+    class: ../../../../Contexts/FoodWarehouse/Foods/application/ProvideFoodOnOrderPlateCreated
+    arguments: ["@FoodWarehouse.Foods.application.FoodProvider"]
+    tags:
+      - { name: 'domainEventSubscriber' }

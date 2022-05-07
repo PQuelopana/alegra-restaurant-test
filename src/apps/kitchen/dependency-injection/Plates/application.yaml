@@ -1,0 +1,4 @@
+services:
+  Kitchen.Plates.domain.PlateRepository:
+    class: ../../../../Contexts/Kitchen/Plate/infrastructure/persistence/FilePlateRepository
+    arguments: []

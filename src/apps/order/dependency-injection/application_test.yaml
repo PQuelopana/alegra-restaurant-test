@@ -1,0 +1,7 @@
+imports:
+  - { resource: ./application.yaml }
+
+services:
+  Order.EnvironmentArranger:
+    class: ../../../../tests/Contexts/Shared/infrastructure/file/FileEnvironmentArranger
+    arguments: []

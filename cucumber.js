@@ -2,12 +2,19 @@ const common = [
   '--require-module ts-node/register' // Load TypeScript module
 ];
 
-const mooc_backend = [
+const kitchen_backend = [
   ...common,
-  'tests/apps/mooc/backend/features/**/*.feature',
-  '--require tests/apps/mooc/backend/features/step_definitions/*.steps.ts'
+  'tests/apps/kitchen/features/**/*.feature',
+  '--require tests/apps/kitchen/features/step_definitions/*.steps.ts'
+].join(' ');
+
+const order_backend = [
+  ...common,
+  'tests/apps/order/features/**/*.feature',
+  '--require tests/apps/order/features/step_definitions/*.steps.ts'
 ].join(' ');
 
 module.exports = {
-  mooc_backend
+  kitchen_backend,
+  order_backend,
 };

@@ -1,0 +1,7 @@
+imports:
+  - { resource: ./OrderPlates/application.yaml }
+  - { resource: ./Shared/application.yaml }
+  - { resource: ./Plates/application.yaml }
+  - { resource: ./PlateIngredients/application.yaml }
+  - { resource: ./OrderPlateIngredients/application.yaml }
+  - { resource: ./OrderPlates/application.yaml }

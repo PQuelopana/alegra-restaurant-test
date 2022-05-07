@@ -1,0 +1,13 @@
+services:
+
+  Apps.order.controllers.StatusGetController:
+    class: ../../controllers/StatusGetController
+    arguments: []
+
+  Apps.order.controllers.OrderPostController:
+    class: ../../controllers/OrderPostController
+    arguments: ['@Order.Orders.application.OrderCreator']
+
+  Apps.order.controllers.OrderGetController:
+    class: ../../controllers/OrderGetController
+    arguments: ['@Order.Orders.application.OrderGetter']

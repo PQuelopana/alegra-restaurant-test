@@ -1,0 +1,20 @@
+services:
+  Kitchen.OrdersPlatePrepare.domain.OrderPlateRepository:
+    class: ../../../../Contexts/Kitchen/OrdersPlatePrepare/infrastructure/persistence/FileOrderPlateRepository
+    arguments: []
+
+  Kitchen.OrdersPlatePrepare.application.OrdersPlatePreparer:
+    class: ../../../../Contexts/Kitchen/OrdersPlatePrepare/application/OrdersPlatePreparer
+    arguments: [
+      '@Kitchen.OrdersPlatePrepare.domain.OrderPlateRepository',
+      '@Kitchen.Plates.domain.PlateRepository',
+      '@Kitchen.PlateIngredients.domain.PlateIngredientRepository',
+      '@Kitchen.OrderPlateIngredients.domain.OrderPlateIngredientRepository',
+      '@Shared.EventBus'
+    ]
+
+  Kitchen.OrdersPlatePrepare.application.PrepareOrdersPlateOnOrderCreated:
+    class: ../../../../Contexts/Kitchen/OrdersPlatePrepare/application/PrepareOrdersPlateOnOrderCreated
+    arguments: ["@Kitchen.OrdersPlatePrepare.application.OrdersPlatePreparer"]
+    tags:
+      - { name: 'domainEventSubscriber' }
